@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	version="2.1">
+	<persistence-unit transaction-type="RESOURCE_LOCAL" name="mysql">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost:3306/citizen1?useSSL=false&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true" />
+			<property name="hibernate.connection.username" value="Pavlo" />
+			<property name="hibernate.connection.password" value="123456" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			
+			<!-- update, create, create-drop -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" /> 
+			<property name="hibernate.format_sql" value="true" /> 
+			</properties>
+	</persistence-unit>
+</persistence>
