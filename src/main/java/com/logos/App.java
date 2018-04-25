@@ -180,14 +180,15 @@ public class App {
 	}
 	
 	static void showCountriesNameStartedA(EntityManager em) {
-		em.createQuery("SELECT c FROM Country c WHERE LOWER(c.name) LIKE ?1", Country.class)
-			.setParameter(1, "a%")
+		em.createQuery("SELECT c FROM Country c WHERE c.name LIKE ?1 "
+				+ "OR c.name LIKE ?2", Country.class)
+			.setParameter(1, "a%").setParameter(2, "A%")
 			.getResultList().forEach(System.out::println);
 	}
 	
 	static void showCitiesPenultimateLetterNOrR(EntityManager em) {
-		em.createQuery("SELECT c FROM City c WHERE LOWER(c.name) LIKE ?1 "
-				+ "OR LOWER(c.name) LIKE ?2", City.class)
+		em.createQuery("SELECT c FROM City c WHERE c.name LIKE ?1 "
+				+ "OR c.name LIKE ?2", City.class)
 			.setParameter(1, "%n_").setParameter(2, "%r_")
 			.getResultList().forEach(System.out::println);
 	}
